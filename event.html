@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Event</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            .box{
+                width: 100px;
+                height: 100px;
+                background: pink;
+            }
+        </style>
+</head>
+
+<body>
+    <div class="container">
+        <button type="button" class="btn btn-primary" id="button">mouse event</button>
+        <div class="box"></div>
+
+        <!-- <button class="context-menu-one btn btn-secondary">
+              right click me
+        </button> -->
+
+        <!--mouseenter在離開之前不會在觸發事件-->
+        <div class="con">
+            <!--mouseover只要在接觸到其他元素就會在觸發事件-->
+            <div class="inside"></div>
+        </div>
+    </div>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script>
+
+        //jQuery為DOM2級事件，意為寫幾次就觸發幾次;DOM 0級為onclick, 僅觸發一次
+
+        $('#button').click(function () {
+            console.log('click')
+            //$('.box').css('background','red')
+        })
+        $('#button').dblclick(function () {
+            console.log('double click')
+        })
+        //右鍵contextmenu
+        $('#button').contextmenu(function () {
+            console.log('context menu')
+        })
+        // $('#button').click(function () {
+        //     //console.log('.btn click')
+        //     $('.box').css('background','pink')
+        // })
+
+        $('#button').mousedown(function(){
+            console.log('mouse down')
+        })
+        $('#button').mouseup(function(){
+            console.log('mouse up')
+        })
+        // $('#button').mouseenter(function(){
+        //     console.log('mouse enter')
+        // })
+        // $('#button').mouseleave(function(){
+        //     console.log('mouse leave')
+        // })
+
+        //hover同時會監測mouse enter & mouse leave
+        $('#button').hover(function(){
+            //console.log('hover')
+            console.log('mouse enter')
+        },function(){
+            console.log('mouse leave')
+        })
+
+
+
+
+    </script>
+</body>
+
+</html>

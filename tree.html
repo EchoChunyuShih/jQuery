@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Tree Travelsal</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="container">
+        <table class="table-bordered table">
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td class="stop"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script>
+        // $('td').click(function(){
+        //     $(this).next().css("background", "pink")
+        // })
+        // $('td').click(function(){
+        //     $(this).nextAll().css("background", "lightblue")
+        // })
+        $('td').click(function(){
+
+            // $(this).css("background", "none")
+            // $(this).nextUntil('.stop').css("background", "lightblue");
+            // $(this).prev().css("background", "yellow");
+
+            //$(this).prevAll().css("background", "yellow")
+
+            // 將上述串在一起，因為已經有next所以prev()要寫兩次才能真正影響到感應區之前
+            // $(this).css("background", "none")
+            // .next().css("background", "lightblue")
+            // .prev().prev().css("background", "yellow");
+
+            //  最後一個因為沒有next基準點所以prev也不會顯示，用end重新定位
+            // $(this).css("background", "none")
+            // .next().css("background", "lightblue")
+            // .end().prev().css("background", "yellow");
+
+            //sibling選取自己以外同層的元素
+            // $(this).css('background', "orange")
+            // .siblings().css('background', "yellow");
+
+            $(this).siblings().css('background', "yellow")
+            .end().css('background', "orange");
+        })
+        
+    </script>
+  </body>
+</html>

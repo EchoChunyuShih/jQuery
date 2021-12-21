@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Photo List</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      .photo-list li {
+        margin: 10px;
+        height: 120px;
+        width: 120px;
+        /* background: #ccc; */
+        border: 3px solid transparent;
+      }
+      .cover-fit {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="d-flex justify-content-center list-unstyled" id="photo-list">
+        <li>
+          <img
+            src="./images/shutterstock_1029979543.jpg"
+            alt=""
+            class="cover-fit"
+          />
+        </li>
+        <li>
+          <img
+            src="./images/shutterstock_1034721367.jpg"
+            alt=""
+            class="cover-fit"
+          />
+        </li>
+        <li>
+          <img
+            src="./images/shutterstock_756931720.jpg"
+            alt=""
+            class="cover-fit"
+          />
+        </li>
+        <li>
+          <img
+            src="./images/shutterstock_766093174.jpg"
+            alt=""
+            class="cover-fit"
+          />
+        </li>
+        <li>
+          <img
+            src="./images/shutterstock_516937234.jpg"
+            alt=""
+            class="cover-fit"
+          />
+        </li>
+      </ul>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $("#photo-list li").click(function () {
+        $(this)
+          .css("border", "3px solid red")
+          .siblings()
+          .css("border", "3px solid transparent");
+      });
+    </script>
+  </body>
+</html>
