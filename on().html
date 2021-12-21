@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ON</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+        ul li{
+            padding: 5px 0;
+        }
+        ul li:hover{
+            background: #eee;
+            
+        }
+        ul li:active{
+            background: lightcoral;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <button class="btn btn-primary" id="on">ON</button>
+      <div class="py-3"><input type="text" class="form-control" id="input"></div>
+      <div class="py-2">
+          <button class="btn btn-info" id="add">add</button>
+      </div>
+      <ul id="itemList">
+          <li>item1</li>
+          <li>item2</li>
+      </ul>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+   <script>
+    //    $("#on").click(function(){})
+       $("#on").on("click", function(){
+           console.log("click")
+       })
+
+       $("#on").on({
+           "click": function(){
+               console.log("click")
+           },
+           "mouseenter": function(){
+               console.log("mouseenter")
+           },
+           "mouseleave": function(){
+               console.log("mouseleave")
+           }
+       })
+       $("#input").on("change keyup", function(){
+           console.log($(this).val())
+       })
+       let num=3
+       $("#add").on("click", function(){
+           let newItem=`<li>item${num} </li>`;
+            $("#itemList").append(newItem);
+            num++;
+       })
+
+       //原本不存在的無法綁定，只能用原本存在的ul 或是更大的範圍（不推薦）
+       //$("ul li").on("click", function(){});
+       $("ul#itemList").on("click", "li" ,function(){//逗號後面的"li"是綁定的（不存在）事件
+           let content=$(this).text()
+           console.log(content);
+       })
+
+
+   </script>
+</html>

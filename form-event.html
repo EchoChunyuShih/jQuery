@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>form event</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      .extend-input {
+        border: none;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        width: 120px;
+        transition: 0.4s;
+      }
+      .extend-input:focus-visible {
+        border: none;
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-2">
+      <form action="">
+        <div class="form-group">
+          <input id="input" type="text" class="form-control" />
+        </div>
+
+        <div class="form-group">
+          <select name="" id="select" class="form-control">
+            <option value="taipei">Taipei</option>
+            <option value="taoyuan">Taoyuan</option>
+            <option value="tainan">Tainan</option>
+          </select>
+        </div>
+        <div class="form-group d-flex justify-content-center">
+          <input type="text" class="extend-input" id="extendInput" />
+        </div>
+        <button type="submit" id="doSubmit" class="btn btn-secondary">
+          Submit
+        </button>
+      </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $("#input").focus(function () {
+        console.log("focus");
+      });
+      $("#input").blur(function () {
+        console.log("blur");
+      });
+      $("#input").change(function () {
+        // console.log("change");
+        let content = $(this).val();
+        console.log(content);
+      });
+      $("#select").change(function () {
+        let content = $(this).val();
+        console.log(content);
+      });
+      $("#extendInput").focus(function () {
+        $(this).css("width", "300px");
+      });
+      $("#extendInput").blur(function () {
+        $(this).css("width", "120px");
+      });
+      $("#doSubmit").click(function () {
+        if ($("#input").val() == "") {
+          alert("沒有填寫資料");
+          return;
+        }
+        $("form").submit();
+      });
+    </script>
+  </body>
+</html>

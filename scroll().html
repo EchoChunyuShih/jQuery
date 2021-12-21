@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>scroll</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        height: 300vh;
+      }
+      .img {
+        width: 200px;
+      }
+      .building {
+        position: absolute;
+        top: 300px;
+        left: 50px;
+        transition: 0.5s;
+        transform: translateX(-500px);
+      }
+      .sun {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        margin: -100px 0 0 -100px;
+      }
+      .con {
+        width: 300px;
+        height: 300px;
+        border: 1px solid #ccc;
+        overflow: auto;
+      }
+      .box {
+        width: 500px;
+        height: 100px;
+        background: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="con" id="con">
+      <div class="box"></div>
+    </div>
+    <img class="img building" src="../../example/images/superman.jpg" alt="" />
+    <img class="img sun" src="../../example/images/sun.png" alt="" />
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      //因為body在瀏覽器裡面捲動無法觸發，要用整個瀏覽器window，且不加引號
+      $(window).scroll(function () {
+        let scrollTop = $(this).scrollTop();
+        console.log(scrollTop);
+        if (scrollTop >= 300) {
+          $(".building").css("transform", "translateX(0) ");
+        } else {
+          $(".building").css("transform", "translateX(-500px)");
+        }
+        $(".sun").css("transform", "rotate(" + scrollTop + "deg");
+      });
+      $("#con").scroll(function () {
+        let scrollLeft = $(this).scrollLeft();
+        console.log(scrollLeft);
+      });
+    </script>
+  </body>
+</html>
