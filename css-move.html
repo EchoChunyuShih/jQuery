@@ -78,31 +78,34 @@
 
       let speed = 3;
       let colorIndex = 0;
-      let colors = ["blue", "purple", "green", "orange"];
+      let colors = [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "indigo",
+        "purple",
+      ];
 
       $(".btn").click(function () {
         let dir = $(this).data("dir");
+        $("#box").css("background", colors[colorIndex]);
+        colorIndex += 1;
+        if (colorIndex >= colors.length) colorIndex = 0;
         // console.log(dir);
         switch (dir) {
           case "up":
-            $("#box")
-              .css("top", "-=4" + speed)
-              .css("background", colors[colorIndex]);
+            $("#box").css("top", "-=4" + speed);
             break;
           case "down":
-            $("#box")
-              .css("top", "+=4" + speed)
-              .css("background", "purple");
+            $("#box").css("top", "+=4" + speed);
             break;
           case "left":
-            $("#box")
-              .css("left", "-=4" + speed)
-              .css("background", "green");
+            $("#box").css("left", "-=4" + speed);
             break;
           case "right":
-            $("#box")
-              .css("left", "+=4" + speed)
-              .css("background", "orange");
+            $("#box").css("left", "+=4" + speed);
             break;
         }
       });
