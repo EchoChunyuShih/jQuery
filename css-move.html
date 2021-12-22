@@ -25,7 +25,11 @@
       .box {
         width: 120px;
         height: 120px;
-        background: lightblue;
+        background: rgb(93, 156, 177);
+        transition: 0.4s;
+        /*因為position absolute需要先設定初始值，才能加速移動*/
+        top: 0;
+        left: 0;
       }
     </style>
   </head>
@@ -72,21 +76,33 @@
       //     $("#box").css("left", "+=4");
       //   });
 
+      let speed = 3;
+      let colorIndex = 0;
+      let colors = ["blue", "purple", "green", "orange"];
+
       $(".btn").click(function () {
         let dir = $(this).data("dir");
         // console.log(dir);
         switch (dir) {
           case "up":
-            $("#box").css("top", "-=4");
+            $("#box")
+              .css("top", "-=4" + speed)
+              .css("background", colors[colorIndex]);
             break;
           case "down":
-            $("#box").css("top", "+=4");
+            $("#box")
+              .css("top", "+=4" + speed)
+              .css("background", "purple");
             break;
           case "left":
-            $("#box").css("left", "-=4");
+            $("#box")
+              .css("left", "-=4" + speed)
+              .css("background", "green");
             break;
           case "right":
-            $("#box").css("left", "+=4");
+            $("#box")
+              .css("left", "+=4" + speed)
+              .css("background", "orange");
             break;
         }
       });
