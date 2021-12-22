@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS move</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
+    <style>
+      .wrapper {
+        width: 800px;
+        height: 400px;
+        background: #eee;
+        overflow: hidden;
+      }
+      .box {
+        width: 120px;
+        height: 120px;
+        background: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper position-relative mx-auto">
+      <div class="box position-absolute" id="box"></div>
+    </div>
+    <div class="py-3 text-center">
+      <div class="py-1">
+        <button class="btn btn-info" id="up" data-dir="up">
+          <i class="fas fa-caret-up"></i>
+        </button>
+      </div>
+      <div>
+        <button class="btn btn-info mx-1" id="left" data-dir="left">
+          <i class="fas fa-caret-left"></i></button
+        ><button class="btn btn-info mx-1" id="right" data-dir="right">
+          <i class="fas fa-caret-right"></i>
+        </button>
+      </div>
+      <div class="py-1">
+        <button class="btn btn-info" id="down" data-dir="down">
+          <i class="fas fa-caret-down"></i>
+        </button>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      //   $("#up").click(function () {
+      //     $("#box").css("top", "-=4");
+      //   });
+      //   $("#down").click(function () {
+      //     $("#box").css("top", "+=4");
+      //   });
+      //   $("#left").click(function () {
+      //     $("#box").css("left", "-=4");
+      //   });
+      //   $("#right").click(function () {
+      //     $("#box").css("left", "+=4");
+      //   });
+
+      $(".btn").click(function () {
+        let dir = $(this).data("dir");
+        // console.log(dir);
+        switch (dir) {
+          case "up":
+            $("#box").css("top", "-=4");
+            break;
+          case "down":
+            $("#box").css("top", "+=4");
+            break;
+          case "left":
+            $("#box").css("left", "-=4");
+            break;
+          case "right":
+            $("#box").css("left", "+=4");
+            break;
+        }
+      });
+    </script>
+  </body>
+</html>
