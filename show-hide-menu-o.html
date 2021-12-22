@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Show Hide Menu</title>
+
+    <style>
+      body {
+        background: #ccc;
+      }
+      .transition {
+        transition: 0.4s;
+      }
+      .wrapper {
+        width: 800px;
+        margin: 20px auto;
+      }
+      .menu {
+        display: inline-block;
+        cursor: pointer;
+        padding: 0 0 0 2px;
+      }
+      ul,
+      li {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .bar {
+        width: 36px;
+        height: 6px;
+        background: #666;
+        margin: 6px 0;
+        border-radius: 2px;
+      }
+      .active1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 7px);
+        transform: rotate(-45deg) translate(-9px, 7px);
+      }
+
+      .active2 {
+        opacity: 0;
+      }
+
+      .active3 {
+        -webkit-transform: rotate(45deg) translate(-9px, -8px);
+        transform: rotate(45deg) translate(-9px, -8px);
+      }
+      ul li a {
+        font-family: monospace;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 400;
+        color: white;
+      }
+      ul li {
+        background: #666;
+        border: 1px solid rgb(136, 111, 111);
+        width: 120px;
+      }
+      .hide{
+        display:none;
+      }
+      ul li:hover{
+        background-color: burlywood;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="menu transition" id="menuBtn">
+        <div class="bar bar1 transition" data-id="bar1"></div>
+        <div class="bar bar2 transition" data-id="bar2"></div>
+        <div class="bar bar3 transition" data-id="bar3"></div>
+      </div>
+      
+        <ul class="list-unstyled hide transition" id="menuList">
+          <li>
+            <a href="#">About Us</a>
+          </li>
+          <li>
+            <a href="#">Product</a>
+          </li>
+          <li>
+            <a href="#">My Profile</a>
+          </li>
+        </ul>
+      
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+    $("#menuBtn").click(function(){
+
+      $("#menuList").toggleClass("hide");
+      
+      let bars = $(".bar").data("id");
+      switch(bars){
+        case "bar1": $(".bar1").toggleClass("active1");
+
+          
+        case "bar2":$(".bar2").toggleClass("active2");
+         
+        case "bar3":$(".bar3").toggleClass("active3");
+          break;
+      }
+
+      
+    })
+    </script>
+  </body>
+</html>
