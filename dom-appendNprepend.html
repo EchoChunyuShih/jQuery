@@ -21,16 +21,22 @@
     <div class="container">
       <div class="py-2">
         <button type="button" class="btn btn-primary" id="append">
-          append
+          append()
         </button>
         <button type="button" class="btn btn-primary" id="prepend">
-          prepend
+          prepend()
         </button>
         <button type="button" class="btn btn-primary" id="appendTo">
-          appendTo
+          appendTo()
         </button>
         <button type="button" class="btn btn-primary" id="prependTo">
-          prependTo
+          prependTo()
+        </button>
+        <button type="button" class="btn btn-primary" id="empty">
+          empty()
+        </button>
+        <button type="button" class="btn btn-primary" id="remove">
+          remove()
         </button>
         <div class="py-2">
           <table class="table table-bordered">
@@ -101,6 +107,15 @@
       });
       $("#prependTo").click(function () {
         $("#may").prependTo("#target");
+      });
+
+      //empty target
+      $("#empty").click(function () {
+        $("#target").empty();
+      });
+      //remove target DOM
+      $("#remove").click(function () {
+        $("#target").remove();
       });
     </script>
   </body>
