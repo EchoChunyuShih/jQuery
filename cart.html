@@ -75,8 +75,8 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      let total = 0;
       function checkout() {
+        let total = 0;
         $("tbody tr").each(function () {
           //prompt for price
           let item = $(this);
@@ -87,7 +87,7 @@
           let amount = Number($(this).find(".number").val());
           console.log(amount);
 
-          //prompt for subtotal and print
+          //prompt for subtotal
           let subtotal = price * amount;
           console.log(subtotal);
           $(this).find(".s_price").text(subtotal);
