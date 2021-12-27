@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DOM</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="py-2">
+        <button type="button" class="btn btn-primary" id="append">
+          append
+        </button>
+        <button type="button" class="btn btn-primary" id="prepend">
+          prepend
+        </button>
+        <button type="button" class="btn btn-primary" id="appendTo">
+          appendTo
+        </button>
+        <button type="button" class="btn btn-primary" id="prependTo">
+          prependTo
+        </button>
+        <div class="py-2">
+          <table class="table table-bordered">
+            <tbody>
+              <tr id="may">
+                <td></td>
+                <td>May</td>
+                <td>maylee@gmail.com</td>
+                <td>676847634</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td>No.</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Phone</td>
+          </tr>
+        </thead>
+        <tbody id="target">
+          <!-- <tr>
+            <td>Jane</td>
+            <td>janedoe@test.com</td>
+            <td>8171615253</td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      let no = 1;
+      //append 往前插入新資料
+      $("#append").click(function () {
+        let content = `<tr>
+            <td>${no}</td>
+            <td>Jane</td>
+            <td>janedoe@test.com</td>
+            <td>8171615253</td>
+          </tr>`;
+        $("#target").append(content);
+        no++;
+      });
+      //prepand往後插入新資料
+      $("#prepend").click(function () {
+        let content = `<tr>
+            <td>${no}</td>
+            <td>Jane</td>
+            <td>janedoe@test.com</td>
+            <td>8171615253</td>
+          </tr>`;
+        $("#target").prepend(content);
+        no++;
+      });
+
+      //移動既有內容
+      $("#appendTo").click(function () {
+        $("#may").appendTo("#target");
+      });
+      $("#prependTo").click(function () {
+        $("#may").prependTo("#target");
+      });
+    </script>
+  </body>
+</html>
